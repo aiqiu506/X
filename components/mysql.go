@@ -1,4 +1,4 @@
-//+build mysql  production
+//+build mysql  !production
 
 package components
 

@@ -1,4 +1,4 @@
-//+build rabbitMQ  production
+//+build rabbitMQ  !production
 
 package components
 

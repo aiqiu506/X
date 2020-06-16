@@ -1,4 +1,4 @@
-//+build redis production
+//+build redis !production
 
 package components
 

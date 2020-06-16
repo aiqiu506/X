@@ -1,4 +1,4 @@
-//+build httpServer production
+//+build httpServer !production
 
 package components
 
