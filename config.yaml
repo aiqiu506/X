@@ -1,0 +1,54 @@
+#-------必配--------
+
+#日志配置
+log:
+  path: "./logs"
+  fileName: x
+  needDir:  true
+  isDaily:  true
+
+#环境配置
+env:
+  isPro: false
+  debug: false
+
+
+#---------选配--------
+#mysql配置
+mysql:
+  host: 127.0.0.1
+  port: "3306"
+  user: root
+  pwd: 123456
+  db: test
+
+#rabbitMQ配置
+rabbitMQ:
+  host: 127.0.0.1
+  port: "5672"
+  user: guest
+  pwd: guest
+  defaultExchange: x
+
+#redis配置
+redis:
+  host: 127.0.0.1
+  port: "6379"
+  auth: "123456"
+
+#mongo配置
+mongo:
+  host: 127.0.0.1
+  port: "27017"
+  db: "x"
+
+#jsonRpc配置
+jsonRpcClient:
+  host: "127.0.0.1"
+  port: "9876"
+
+#HTTP服务器配置
+httpServer:
+  host: "127.0.0.1"
+  port: "123456"
+
