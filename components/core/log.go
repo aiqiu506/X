@@ -1,11 +1,11 @@
 package core
 
 import (
+	"github.com/aiqiu506/x/global"
+	"github.com/aiqiu506/x/utils"
 	"log"
 	"os"
 	"time"
-	"x/global"
-	"x/utils"
 )
 
 type LogHandle struct {

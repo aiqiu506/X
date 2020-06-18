@@ -3,24 +3,24 @@
 package httpServer
 
 import (
+	"github.com/aiqiu506/x/global"
+	"github.com/aiqiu506/x/utils"
 	"log"
 	"net/http"
-	"x/global"
-	"x/utils"
 )
 
 type HandlerFunc func(*Context)
 
 type Server struct {
-	host string
-	port string
+	host   string
+	port   string
 	router *Router
 }
 
-func New(host,port string) *Server {
+func New(host, port string) *Server {
 	return &Server{
-		host: host,
-		port: port,
+		host:   host,
+		port:   port,
 		router: newRouter()}
 }
 
@@ -45,7 +45,6 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	s.router.handle(c)
 }
 
-
 type Config struct {
 	Port string `map:"port"`
 	Host string `map:"host"`
@@ -54,26 +53,26 @@ type httpServer struct {
 	Server *Server
 }
 
-
 func (h *httpServer) NewComponent(config interface{}) {
-	params:=&Config{}
+	params := &Config{}
 	if conf, ok := config.(map[interface{}]interface{}); ok {
-		err := utils.MapToStruct(conf,params)
+		err := utils.MapToStruct(conf, params)
 		if err != nil {
 			log.Fatal(err)
 		}
-		h.Server=h.ServerRun(params)
-	}else{
+		h.Server = h.ServerRun(params)
+	} else {
 		log.Fatal("httpServer配置文件错误")
 	}
 
 }
-func (h * httpServer)ServerRun(p *Config) *Server{
-	return New(p.Host,p.Port)
+func (h *httpServer) ServerRun(p *Config) *Server {
+	return New(p.Host, p.Port)
 }
+
 var HttpServer httpServer
 
-func init(){
+func init() {
 	//注册日志组件
 	global.Global.Register("httpServer", &HttpServer)
 }

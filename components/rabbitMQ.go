@@ -3,5 +3,5 @@
 package components
 
 import (
-	_ "x/components/rabbitMQ"
+	_ "github.com/aiqiu506/x/components/rabbitMQ"
 )

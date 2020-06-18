@@ -4,11 +4,11 @@ package component
 
 import (
 	"fmt"
+	"github.com/aiqiu506/x/global"
+	"github.com/aiqiu506/x/utils"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"log"
-	"x/global"
-	"x/utils"
 )
 
 type Config struct {
@@ -36,13 +36,14 @@ func (m *mongoStruct) NewComponent(config interface{}) {
 			log.Fatal(err)
 		}
 		m.DB, m.Session = MongoConnect(mongoParams)
-	}else{
+	} else {
 		log.Fatal("mongo配置文件错误")
 	}
 }
 
 var Mongo mongoStruct
 var err error
+
 func init() {
 	//注册组件
 	global.Global.Register("mongo", &Mongo)

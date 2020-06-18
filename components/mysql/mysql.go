@@ -4,11 +4,11 @@ package mysql
 
 import (
 	"fmt"
+	"github.com/aiqiu506/x/global"
+	"github.com/aiqiu506/x/utils"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"log"
-	"x/global"
-	"x/utils"
 )
 
 type Config struct {
@@ -24,7 +24,6 @@ type Config struct {
 type mySqlStruct struct {
 	DB *gorm.DB
 }
-
 
 func Connect(my *Config) *gorm.DB {
 	connStr := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", my.User, my.Pwd, my.Host, my.Port, my.DBName)

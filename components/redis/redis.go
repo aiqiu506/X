@@ -3,10 +3,10 @@
 package redis
 
 import (
+	"github.com/aiqiu506/x/global"
+	"github.com/aiqiu506/x/utils"
 	"github.com/go-redis/redis"
 	"log"
-	"x/global"
-	"x/utils"
 )
 
 type Config struct {
@@ -44,7 +44,7 @@ func (r *redisStruct) NewComponent(config interface{}) {
 			log.Fatal(err)
 		}
 		r.DB = RedisConnect(redisParams)
-	}else{
+	} else {
 		log.Fatalln("redi配置文件错误")
 	}
 

@@ -3,5 +3,5 @@
 package components
 
 import (
-	_ "x/components/mongo"
+	_ "github.com/aiqiu506/x/components/mongo"
 )

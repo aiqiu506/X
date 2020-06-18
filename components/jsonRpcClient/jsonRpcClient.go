@@ -3,10 +3,10 @@
 package jsonRpcClient
 
 import (
+	"github.com/aiqiu506/x/global"
+	"github.com/aiqiu506/x/utils"
 	"log"
 	"net/rpc/jsonrpc"
-	"x/global"
-	"x/utils"
 )
 
 type JsonRpcStruct struct {
@@ -20,7 +20,7 @@ func (j *JsonRpcStruct) NewComponent(config interface{}) {
 		if err != nil {
 			log.Fatal(err)
 		}
-	}else{
+	} else {
 		log.Fatal("jsonRpcClient配置文件错误")
 	}
 }

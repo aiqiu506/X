@@ -9,16 +9,16 @@ import (
 )
 
 type Context struct {
-	Resp http.ResponseWriter
-	Req    *http.Request
-	Path   string
-	Method string
+	Resp       http.ResponseWriter
+	Req        *http.Request
+	Path       string
+	Method     string
 	StatusCode int
 }
 
 func NewContext(w http.ResponseWriter, req *http.Request) *Context {
 	return &Context{
-		Resp: w,
+		Resp:   w,
 		Req:    req,
 		Path:   req.URL.Path,
 		Method: req.Method,

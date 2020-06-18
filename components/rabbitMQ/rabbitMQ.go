@@ -4,10 +4,10 @@ package rabbitMQ
 
 import (
 	"fmt"
+	"github.com/aiqiu506/x/global"
+	"github.com/aiqiu506/x/utils"
 	"github.com/streadway/amqp"
 	"log"
-	"x/global"
-	"x/utils"
 )
 
 type Config struct {
@@ -34,7 +34,7 @@ func (m *rabbitMQStruct) NewComponent(config interface{}) {
 			log.Fatal(err)
 		}
 		m.Channel = RabbitMQConnect(rabbitMQParams)
-	}else{
+	} else {
 		log.Fatal("rabbitMQ配置文件错误")
 	}
 
@@ -47,8 +47,6 @@ func init() {
 	//注册组件
 	global.Global.Register("rabbitMQ", &RabbitMQ)
 }
-
-
 
 func RabbitMQConnect(mq *Config) *amqp.Channel {
 	conn, err := amqp.Dial(fmt.Sprintf("amqp://%s:%s@%s:%s", mq.User, mq.Pwd, mq.Host, mq.Port))

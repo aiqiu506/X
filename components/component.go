@@ -1,8 +1,8 @@
 package components
 
 import (
-	_ "x/components/core"
-	"x/global"
+	_ "github.com/aiqiu506/x/components/core"
+	"github.com/aiqiu506/x/global"
 )
 
 func Register() {

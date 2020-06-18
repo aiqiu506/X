@@ -3,5 +3,5 @@
 package components
 
 import (
-	_ "x/components/redis"
+	_ "github.com/aiqiu506/x/components/redis"
 )

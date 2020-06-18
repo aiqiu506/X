@@ -1,8 +1,8 @@
 package global
 
 import (
+	"github.com/aiqiu506/x/conf"
 	"sync"
-	"x/conf"
 )
 
 type Component interface {
@@ -13,23 +13,23 @@ type Service interface {
 }
 type global struct {
 	Components map[string]Component
-	Services  map[string]Service
-	Config * conf.ConfigEngine
+	Services   map[string]Service
+	Config     *conf.ConfigEngine
 }
 
-func (g *global)RegisterService(name string ,service Service){
+func (g *global) RegisterService(name string, service Service) {
 	if _, ok := g.Services[name]; !ok {
 		g.Services[name] = service
 	}
 }
 
-func (g *global)Register(name string,component Component)  {
+func (g *global) Register(name string, component Component) {
 	if _, ok := g.Components[name]; !ok {
 		g.Components[name] = component
 	}
 }
 
-func RunSync()  {
+func RunSync() {
 	lock := &sync.WaitGroup{}
 	for k, v := range Global.Services {
 		lock.Add(1)
@@ -39,7 +39,7 @@ func RunSync()  {
 
 }
 
-func Run()  {
+func Run() {
 	lock := &sync.WaitGroup{}
 	for k, v := range Global.Services {
 		lock.Add(1)
@@ -48,12 +48,11 @@ func Run()  {
 	lock.Wait()
 }
 
-
 var Global global
 
-func init()  {
-	Global=global{
-		Components:make(map[string]Component),
-		Services:make(map[string]Service),
+func init() {
+	Global = global{
+		Components: make(map[string]Component),
+		Services:   make(map[string]Service),
 	}
 }
