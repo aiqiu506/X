@@ -1,14 +1,14 @@
 package X
 
 import (
+	"github.com/aiqiu506/x/global"
 	"sync"
 	"testing"
-	"x/global"
 )
 
 type TT struct{}
 
-func (t *TT)Run(locker *sync.WaitGroup, name string){
+func (t *TT) Run(locker *sync.WaitGroup, name string) {
 	defer func() {
 		locker.Done()
 	}()
@@ -16,8 +16,8 @@ func (t *TT)Run(locker *sync.WaitGroup, name string){
 
 }
 func TestNewX(t *testing.T) {
-	global.Global.RegisterService("test",&TT{})
-	x:=NewX("config.yaml")
+	global.Global.RegisterService("test", &TT{})
+	x := NewX("config.yaml")
 
 	x.Start()
 }
