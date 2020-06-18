@@ -1,4 +1,4 @@
-module x
+module github.com/aiqiu506/x
 
 go 1.12
 
